@@ -13,14 +13,14 @@ public class PreferencesHelperTest {
 
     @Before
     public void setUp() throws Exception {
-        Context context = get
-        PreferencesHelper.initHelper(this);
+//        Context context = get
+//        PreferencesHelper.initHelper(this);
     }
 
 
     @Test
     public void testSetString() {
         String stringKey = "stringKey";
-        PreferencesHelper.getInstance().setValue();
+//        PreferencesHelper.getInstance().setValue();
     }
 }
