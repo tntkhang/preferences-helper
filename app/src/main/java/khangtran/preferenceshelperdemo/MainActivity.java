@@ -41,24 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void getValueFromPreferences() {
         boolean booleanValue = PreferencesHelper.getInstance().getBooleanValue(KEY_BOOLEAN, false);
-        Log.i(TAG, "Boolean Value: " + booleanValue);
-
         double doubleValue = PreferencesHelper.getInstance().getDoubleValue(KEY_DOUBLE, Double.MIN_VALUE);
-        Log.i(TAG, "Double Value: " + doubleValue);
-
         float floatValue = PreferencesHelper.getInstance().getFloatValue(KEY_FLOAT, Float.MIN_VALUE);
-        Log.i(TAG, "Float Value: " + floatValue);
-
         int intValue = PreferencesHelper.getInstance().getIntValue(KEY_INT, Integer.MIN_VALUE);
-        Log.i(TAG, "Integer Value: " + intValue);
-
         long longValue = PreferencesHelper.getInstance().getLongValue(KEY_LONG, Long.MIN_VALUE);
-        Log.i(TAG, "Long Value: " + longValue);
-
         String stringValue = PreferencesHelper.getInstance().getStringValue(KEY_STRING, "Empty");
-        Log.i(TAG, "String Value: " + stringValue);
-
         UserModel userModel = PreferencesHelper.getInstance().getObjectValue(KEY_OBJECT, UserModel.class);
-        Log.i(TAG, "UserModel Value: " + userModel.toString());
     }
 }

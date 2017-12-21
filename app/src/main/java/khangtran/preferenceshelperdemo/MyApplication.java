@@ -14,5 +14,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         PreferencesHelper.initHelper(this);
+        PreferencesHelper.initHelper(this, "CustomName");
     }
 }
