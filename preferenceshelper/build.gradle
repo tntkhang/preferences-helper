@@ -15,7 +15,7 @@ ext {
     gitUrl = 'https://github.com/tntkhang/preferences-helper.git'
     githubRepository= 'tntkhang/preferences-helper'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'tntkhang'
     developerName = 'KhangTran'
@@ -31,10 +31,10 @@ android {
     buildToolsVersion "26.0.2"
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
