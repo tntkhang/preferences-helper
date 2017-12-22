@@ -11,24 +11,19 @@ This is a library help you faster on config and use SharePreferences
 ```
 
 2. Add to build.gradle in app level
-```compile 'com.github.tntkhang:preferenceshelper:1.0.0'```
+```compile 'com.github.tntkhang:preferenceshelper:1.0.1'```
 
 
-3. In your CustomApplication.java extend from Application let's init the PreferencesHelper
-   with
+3. Init the PreferencesHelper in your CustomApplication.java extend from Application with 2 ways:
    
-   ```PreferencesHelper.initHelper(this);```
+   - Will use app name as of Preferences file name ```PreferencesHelper.initHelper(this);```
    
-   will use your application name as the name of SharePreferences file
-   or
+   - Will use ```CustomName``` as the name of SharePreferences file ```PreferencesHelper.initHelper(this, "CustomName");```
    
-  ```PreferencesHelper.initHelper(this, "CustomName");```
-   
-   will use "CustomName" as the name of SharePreferences file.
-   
-3. Let's use it
+3. How to use
 
-   SET VALUE:
+```
+   //SET VALUE:
    
    PreferencesHelper.getInstance().setValue(KEY_BOOLEAN, true);
    
@@ -62,5 +57,5 @@ This is a library help you faster on config and use SharePreferences
    String stringValue = PreferencesHelper.getInstance().getStringValue(KEY_STRING, "Empty");
    
    UserModel userModel = PreferencesHelper.getInstance().getObjectValue(KEY_OBJECT, UserModel.class);
-   
+   ```
    ###### END ##############
