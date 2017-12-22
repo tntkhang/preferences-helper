@@ -3,17 +3,26 @@ This is a library help you faster on config and use SharePreferences
 
 # Setting
 
-1. Import module PreferencesHelper into your project
+1. Add to build.gradle in project level under allprojects/repositories
+{code}
+         maven {
+            url  "https://khangtran.bintray.com/maven"
+         }
+{code}
 
-2. In your CustomApplication.java init the helper
+2. Add to build.gradle in app level
+{code}compile 'com.github.tntkhang:preferenceshelper:1.0.0'{code}
+
+
+3. In your CustomApplication.java extend from Application let's init the PreferencesHelper
    with
    
-   PreferencesHelper.initHelper(this); 
+   {code}PreferencesHelper.initHelper(this); {code}
    
    will use your application name as the name of SharePreferences file
    or
    
-   PreferencesHelper.initHelper(this, "CustomName");
+   {code}PreferencesHelper.initHelper(this, "CustomName");{code}
    
    will use "CustomName" as the name of SharePreferences file.
    
