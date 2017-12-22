@@ -11,7 +11,7 @@ This is a library help you faster on config and use SharePreferences
 ```
 
 2. Add to build.gradle in app level
-```compile 'com.github.tntkhang:preferenceshelper:1.0.1'```
+```compile 'com.github.tntkhang:preferenceshelper:1.0.2'```
 
 
 3. Init the PreferencesHelper in your CustomApplication.java extend from Application with 2 ways:
