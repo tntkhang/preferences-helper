@@ -15,7 +15,7 @@ ext {
     gitUrl = 'https://github.com/tntkhang/preferences-helper.git'
     githubRepository= 'tntkhang/preferences-helper'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.0'
 
     developerId = 'tntkhang'
     developerName = 'KhangTran'
