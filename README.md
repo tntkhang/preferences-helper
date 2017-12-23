@@ -2,16 +2,8 @@
 This is a library help you faster on config and use SharePreferences
 
 # Setting
-
-1. Add to build.gradle in project level under allprojects/repositories
-```
-         maven {
-            url  "https://khangtran.bintray.com/maven"
-         }
-```
-
-2. Add to build.gradle in app level
-```compile 'com.github.tntkhang:preferenceshelper:1.0.2'```
+1. Add to build.gradle in app level
+```compile 'com.github.tntkhang:preferences-helper:1.0.0'```
 
 
 3. Init the PreferencesHelper in your CustomApplication.java extend from Application with 2 ways:
