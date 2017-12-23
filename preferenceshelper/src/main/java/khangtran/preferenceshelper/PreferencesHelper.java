@@ -18,11 +18,11 @@ public class PreferencesHelper {
         return instance;
     }
 
-    public PreferencesHelper(Context context) {
+    private PreferencesHelper(Context context) {
         prefs = context.getApplicationContext().getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
     }
 
-    public PreferencesHelper(Context context, String sharePreferencesName) {
+    private PreferencesHelper(Context context, String sharePreferencesName) {
         prefs = context.getApplicationContext().getSharedPreferences(sharePreferencesName, Context.MODE_PRIVATE);
     }
 
@@ -100,7 +100,7 @@ public class PreferencesHelper {
         return Double.parseDouble(getStringValue(KEY, String.valueOf(defValue)));
     }
 
-    public void removeValue(String KEY) {
+    public void removeKey(String KEY) {
         prefs.edit().remove(KEY).apply();
     }
 
