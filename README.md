@@ -8,7 +8,7 @@ compile 'com.github.tntkhang:preferences-helper:1.0.0'
 ```
 
 
-3. Init the PreferencesHelper in your CustomApplication.java extend from Application with 2 ways:
+2. Init the PreferencesHelper in your CustomApplication.java extend from Application with 2 ways:
    
    - Will use app name as of Preferences file name ```PreferencesHelper.initHelper(this);```
    
