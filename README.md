@@ -1,7 +1,7 @@
 # preferences-helper
-This is a library help you faster on config and use SharePreferences
+SharePreferences is very popular with any project and all most all project has SharePreferences for saving data. This library will help you faster in configuration and use SharePreferences in your project. Let's setup and enjoy!
 
-# Setting
+# Setup
 1. Add to build.gradle in app level
 ```compile 'com.github.tntkhang:preferences-helper:1.0.0'```
 
