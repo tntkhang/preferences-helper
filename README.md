@@ -3,7 +3,9 @@ SharePreferences is very popular with any project and all most all project has S
 
 # Setup
 1. Add to build.gradle in app level
-```compile 'com.github.tntkhang:preferences-helper:1.0.0'```
+```
+compile 'com.github.tntkhang:preferences-helper:1.0.0'
+```
 
 
 3. Init the PreferencesHelper in your CustomApplication.java extend from Application with 2 ways:
