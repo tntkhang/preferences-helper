@@ -5,6 +5,11 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.Primitives;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+
+import java.util.List;
 
 /**
  * Created by khang on 11/14/2017.
@@ -64,6 +69,42 @@ public class PreferencesHelper {
 
     public void setValue(String KEY, double defValue) {
         setValue(KEY, String.valueOf(defValue));
+    }
+
+    public <T> void setValue(String KEY, List<T> strings) {
+        setValue(KEY, new Gson().toJson(strings));
+    }
+
+    public <T> void setValue(String KEY, T[] array) {
+        JSONArray jArray = new JSONArray();
+            for (T t : array) {
+                jArray.put(t);
+            }
+        prefs.edit().putString(KEY, new Gson().toJson(jArray)).apply();
+    }
+
+    public <T> T[] getArrayValue(String KEY) {
+        T[] results = null;
+        try {
+            JSONArray jArray = new JSONArray(prefs.getString(KEY, ""));
+            for (int i = 0; i < jArray.length(); i++) {
+                results[i] = (T) jArray.get(i);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return results;
+    }
+
+    public <T> List<T> getListValue(String KEY) {
+        List<T> objects = null;
+        try {
+            String obj = prefs.getString(KEY, "");
+            objects = new Gson().fromJson(obj, new TypeToken<List<T>>() {}.getType());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return objects;
     }
 
     public boolean getBooleanValue(String KEY, boolean defvalue) {
