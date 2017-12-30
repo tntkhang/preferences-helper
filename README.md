@@ -1,4 +1,7 @@
 # preferences-helper
+
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-PreferencesHelper-green.svg?style=flat )]( https://android-arsenal.com/details/1/6595 )
+
 SharePreferences is very popular with any project and all most all project has SharePreferences for saving data. This library will help you faster in configuration and use SharePreferences in your project. Let's setup and enjoy!
 
 # Setup
@@ -52,4 +55,8 @@ compile 'com.github.tntkhang:preferences-helper:1.0.0'
    
    UserModel userModel = PreferencesHelper.getInstance().getObjectValue(KEY_OBJECT, UserModel.class);
    ```
-   ###### END ##############
+   # DEMO
+
+   Download and run project for simple demo
+
+   **That is, let's enjoy!**
