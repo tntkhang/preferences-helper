@@ -2,6 +2,8 @@
 
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-PreferencesHelper-green.svg?style=flat )]( https://android-arsenal.com/details/1/6595 )
 
+[ ![Download](https://api.bintray.com/packages/tntkhang/maven/preferences-helper/images/download.svg) ](https://bintray.com/tntkhang/maven/preferences-helper/_latestVersion)
+
 SharePreferences is very popular with any project and all most all project has SharePreferences for saving data. This library will help you faster in configuration and use SharePreferences in your project. Let's setup and enjoy!
 
 # Setup
