@@ -9,7 +9,7 @@ SharePreferences is very popular with any project and all most all project has S
 # Setup
 1. Add to build.gradle in app level
 ```
-compile 'com.github.tntkhang:preferences-helper:1.1.0'
+implementation 'com.github.tntkhang:preferences-helper:1.1.0'
 ```
 
 
