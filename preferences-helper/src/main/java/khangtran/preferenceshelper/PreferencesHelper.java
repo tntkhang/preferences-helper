@@ -144,6 +144,10 @@ public class PreferencesHelper {
     public void removeKey(String KEY) {
         prefs.edit().remove(KEY).apply();
     }
+    
+    public void removeAllKeys() {
+        prefs.edit().clear().apply();
+    }
 
     public boolean contain(String KEY) {
         return prefs.contains(KEY);
