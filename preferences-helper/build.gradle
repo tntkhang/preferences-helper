@@ -1,5 +1,31 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'gmail-sender-library'   // Replace by your library name, has to be same as your library module name
+
+    publishedGroupId = 'com.github.tntkhang'
+    libraryName = 'gmail-sender-library'  //  Replace by your library name, has to be same as your library module name
+    artifact = 'gmail-sender-library'     // Replace by your library name, has to be same as your library module name
+
+    libraryDescription = 'This is description about this library'
+
+    // Your github repo link
+    siteUrl = 'https://github.com/tntkhang/gmail-sender-helper' // Replace by your url
+    gitUrl = 'https://github.com/tntkhang/gmail-sender-helper.git' // Replace by your url
+    githubRepository= 'tntkhang/my-library-helper' // Replace by your url
+
+    libraryVersion = '1.2.0' // Increase whenever you update library version
+
+    developerId = 'tntkhang' // Replace by your name
+    developerName = 'KhangTran' // Replace by your name
+    developerEmail = 'tntkhang@gmail.com' // Replace by your email
+
+    licenseName = 'The MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -30,3 +56,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.code.gson:gson:2.8.2'
 }
+
+apply from: 'https://raw.githubusercontent.com/tntkhang/library-to-bintray/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/tntkhang/library-to-bintray/master/bintray.gradle'

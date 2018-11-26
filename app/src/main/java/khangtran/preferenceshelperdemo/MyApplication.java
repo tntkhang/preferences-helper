@@ -2,7 +2,7 @@ package khangtran.preferenceshelperdemo;
 
 import android.app.Application;
 
-import khangtran.preferenceshelper.PreferencesHelper;
+import khangtran.preferenceshelper.PrefHelper;
 
 /**
  * Created by khang on 11/29/2017.
@@ -13,7 +13,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PreferencesHelper.initHelper(this);
-        PreferencesHelper.initHelper(this, "CustomName");
+        PrefHelper.initHelper(this);
+        PrefHelper.initHelper(this, "CustomName");
     }
 }

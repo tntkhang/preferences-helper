@@ -15,31 +15,34 @@ import java.util.List;
  * Created by khang on 11/14/2017.
  */
 
-public class PreferencesHelper {
-    private static PreferencesHelper instance;
+public class PrefHelper {
+    private static PrefHelper instance;
     private SharedPreferences prefs;
 
-    public static PreferencesHelper getInstance() {
+    public static PrefHelper getInstance() {
+        if (instance == null) {
+            throw new IllegalArgumentException("PrefHelper must be call initHelper on Application before using.");
+        }
         return instance;
     }
 
-    private PreferencesHelper(Context context) {
+    private PrefHelper(Context context) {
         prefs = context.getApplicationContext().getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
     }
 
-    private PreferencesHelper(Context context, String sharePreferencesName) {
+    private PrefHelper(Context context, String sharePreferencesName) {
         prefs = context.getApplicationContext().getSharedPreferences(sharePreferencesName, Context.MODE_PRIVATE);
     }
 
-    public static PreferencesHelper initHelper(Context context) {
+    public static PrefHelper initHelper(Context context) {
         if (instance == null)
-            instance = new PreferencesHelper(context);
+            instance = new PrefHelper(context);
         return instance;
     }
 
-    public static PreferencesHelper initHelper(Context context, String sharePreferencesName) {
+    public static PrefHelper initHelper(Context context, String sharePreferencesName) {
         if (instance == null)
-            instance = new PreferencesHelper(context, sharePreferencesName);
+            instance = new PrefHelper(context, sharePreferencesName);
         return instance;
     }
 
