@@ -2,18 +2,18 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'gmail-sender-library'   // Replace by your library name, has to be same as your library module name
+    bintrayName = 'preferences-helper'   // Replace by your library name, has to be same as your library module name
 
     publishedGroupId = 'com.github.tntkhang'
-    libraryName = 'gmail-sender-library'  //  Replace by your library name, has to be same as your library module name
-    artifact = 'gmail-sender-library'     // Replace by your library name, has to be same as your library module name
+    libraryName = 'preferences-helper'  //  Replace by your library name, has to be same as your library module name
+    artifact = 'preferences-helper'     // Replace by your library name, has to be same as your library module name
 
     libraryDescription = 'This is description about this library'
 
     // Your github repo link
-    siteUrl = 'https://github.com/tntkhang/gmail-sender-helper' // Replace by your url
-    gitUrl = 'https://github.com/tntkhang/gmail-sender-helper.git' // Replace by your url
-    githubRepository= 'tntkhang/my-library-helper' // Replace by your url
+    siteUrl = 'https://github.com/tntkhang/preferences-helper' // Replace by your url
+    gitUrl = 'https://github.com/tntkhang/preferences-helper.git' // Replace by your url
+    githubRepository= 'tntkhang/preferences-helper' // Replace by your url
 
     libraryVersion = '1.2.0' // Increase whenever you update library version
 
