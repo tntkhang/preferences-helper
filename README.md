@@ -9,7 +9,7 @@ SharePreferences is very popular with any project and all most all project has S
 # Setup
 1. Add to build.gradle in app level
 ```
-implementation 'com.github.tntkhang:preferences-helper:1.3.0'
+implementation 'com.github.tntkhang:preferences-helper:1.3.1'
 ```
 
 
@@ -42,6 +42,13 @@ implementation 'com.github.tntkhang:preferences-helper:1.3.0'
         arr[2] = "Thai 2";
         arr[3] = "Khang 2";
         PrefHelper.setVal(KEY_ARRAY, arr);
+        
+        Map<String, String> stringMap = new HashMap<>();
+        stringMap.put("Tr", "Tran");
+        stringMap.put("N", "Nguyen");
+        stringMap.put("Th", "Thai");
+        stringMap.put("K", "Khang");
+        PrefHelper.setVal(KEY_MAP, stringMap);
    ```
    
    ### GET VALUE:
@@ -56,7 +63,7 @@ implementation 'com.github.tntkhang:preferences-helper:1.3.0'
   UserModel userModel = PrefHelper.getObjectVal(KEY_OBJECT, UserModel.class);
   List<String> stringList = PrefHelper.getListVal(KEY_ARRAY_LIST);
   String[] strings = PrefHelper.getArrayVal(KEY_ARRAY);
-  
+  Map<String, String> stringMap = PrefHelper.getMapVal(KEY_MAP);
    ```
    # DEMO
 
