@@ -32,36 +32,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setValueToPreferences() {
-        PrefHelper.getInstance().setValue(KEY_BOOLEAN, true);
-        PrefHelper.getInstance().setValue(KEY_DOUBLE, 123.123);
-        PrefHelper.getInstance().setValue(KEY_FLOAT, 234.234f);
-        PrefHelper.getInstance().setValue(KEY_INT, 345);
-        PrefHelper.getInstance().setValue(KEY_LONG, Long.MAX_VALUE);
-        PrefHelper.getInstance().setValue(KEY_STRING, "Khang");
+        PrefHelper.setVal(KEY_BOOLEAN, true);
+        PrefHelper.setVal(KEY_DOUBLE, 123.123);
+        PrefHelper.setVal(KEY_FLOAT, 234.234f);
+        PrefHelper.setVal(KEY_INT, 345);
+        PrefHelper.setVal(KEY_LONG, Long.MAX_VALUE);
+        PrefHelper.setVal(KEY_STRING, "Khang");
 
         UserModel userModel = new UserModel("KhangTran", 27);
-        PrefHelper.getInstance().setValue(KEY_OBJECT, userModel);
+        PrefHelper.setVal(KEY_OBJECT, userModel);
 
         List<String> stringList =  Arrays.asList("Tran", "Nguyen", "Thai", "Khang");
-        PrefHelper.getInstance().setValue(KEY_ARRAY_LIST, stringList);
+        PrefHelper.setVal(KEY_ARRAY_LIST, stringList);
 
         String[] arr = new String[4];
         arr[0] = "Tran 2";
         arr[1] = "Nguyen 2";
         arr[2] = "Thai 2";
         arr[3] = "Khang 2";
-        PrefHelper.getInstance().setValue(KEY_ARRAY, arr);
+        PrefHelper.setVal(KEY_ARRAY, arr);
     }
 
     private void getValueFromPreferences() {
-        boolean booleanValue = PrefHelper.getInstance().getBooleanValue(KEY_BOOLEAN, false);
-        double doubleValue = PrefHelper.getInstance().getDoubleValue(KEY_DOUBLE, Double.MIN_VALUE);
-        float floatValue = PrefHelper.getInstance().getFloatValue(KEY_FLOAT, Float.MIN_VALUE);
-        int intValue = PrefHelper.getInstance().getIntValue(KEY_INT, Integer.MIN_VALUE);
-        long longValue = PrefHelper.getInstance().getLongValue(KEY_LONG, Long.MIN_VALUE);
-        String stringValue = PrefHelper.getInstance().getStringValue(KEY_STRING, "Empty");
-        UserModel userModel = PrefHelper.getInstance().getObjectValue(KEY_OBJECT, UserModel.class);
-        List<String> stringList = PrefHelper.getInstance().getListValue(KEY_ARRAY_LIST);
-        String[] strings = PrefHelper.getInstance().getArrayValue(KEY_ARRAY);
+        boolean booleanValue = PrefHelper.getBooleanVal(KEY_BOOLEAN, false);
+        double doubleValue = PrefHelper.getDoubleVal(KEY_DOUBLE, Double.MIN_VALUE);
+        float floatValue = PrefHelper.getFloatVal(KEY_FLOAT, Float.MIN_VALUE);
+        int intValue = PrefHelper.getIntVal(KEY_INT, Integer.MIN_VALUE);
+        long longValue = PrefHelper.getLongVal(KEY_LONG, Long.MIN_VALUE);
+        String stringValue = PrefHelper.getStringVal(KEY_STRING, "Empty");
+        UserModel userModel = PrefHelper.getObjectVal(KEY_OBJECT, UserModel.class);
+        List<String> stringList = PrefHelper.getListVal(KEY_ARRAY_LIST);
+        String[] strings = PrefHelper.getArrayVal(KEY_ARRAY);
     }
 }

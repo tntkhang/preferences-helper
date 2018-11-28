@@ -19,7 +19,7 @@ public class PrefHelper {
     private static PrefHelper instance;
     private SharedPreferences prefs;
 
-    public static PrefHelper getInstance() {
+    private static PrefHelper getInstance() {
         if (instance == null) {
             throw new IllegalArgumentException("PrefHelper must be call initHelper on Application before using.");
         }
@@ -46,50 +46,50 @@ public class PrefHelper {
         return instance;
     }
 
-    public void setValue(String KEY, boolean value) {
-        prefs.edit().putBoolean(KEY, value).apply();
+    public static void setVal(String KEY, boolean value) {
+        getInstance().prefs.edit().putBoolean(KEY, value).apply();
     }
 
-    public void setValue(String KEY, String value) {
-        prefs.edit().putString(KEY, value).apply();
+    public static void setVal(String KEY, String value) {
+        getInstance().prefs.edit().putString(KEY, value).apply();
     }
 
-    public void setValue(String KEY, Object value) {
-        prefs.edit().putString(KEY, new Gson().toJson(value)).apply();
+    public static void setVal(String KEY, Object value) {
+        getInstance().prefs.edit().putString(KEY, new Gson().toJson(value)).apply();
     }
 
-    public void setValue(String KEY, int value) {
-        prefs.edit().putInt(KEY, value).apply();
+    public static void setVal(String KEY, int value) {
+        getInstance().prefs.edit().putInt(KEY, value).apply();
     }
 
-    public void setValue(String KEY, long value) {
-        prefs.edit().putLong(KEY, value).apply();
+    public static void setVal(String KEY, long value) {
+        getInstance().prefs.edit().putLong(KEY, value).apply();
     }
 
-    public void setValue(String KEY, float value) {
-        prefs.edit().putFloat(KEY, value).apply();
+    public static void setVal(String KEY, float value) {
+        getInstance().prefs.edit().putFloat(KEY, value).apply();
     }
 
-    public void setValue(String KEY, double defValue) {
-        setValue(KEY, String.valueOf(defValue));
+    public static void setVal(String KEY, double defVal) {
+        setVal(KEY, String.valueOf(defVal));
     }
 
-    public <T> void setValue(String KEY, List<T> strings) {
-        setValue(KEY, new Gson().toJson(strings));
+    public static <T> void setVal(String KEY, List<T> strings) {
+        setVal(KEY, new Gson().toJson(strings));
     }
 
-    public <T> void setValue(String KEY, T[] array) {
+    public static <T> void setVal(String KEY, T[] array) {
         JSONArray jArray = new JSONArray();
             for (T t : array) {
                 jArray.put(t);
             }
-        prefs.edit().putString(KEY, new Gson().toJson(jArray)).apply();
+        getInstance().prefs.edit().putString(KEY, new Gson().toJson(jArray)).apply();
     }
 
-    public <T> T[] getArrayValue(String KEY) {
+    public static <T> T[] getArrayVal(String KEY) {
         T[] results = null;
         try {
-            JSONArray jArray = new JSONArray(prefs.getString(KEY, ""));
+            JSONArray jArray = new JSONArray(getInstance().prefs.getString(KEY, ""));
             for (int i = 0; i < jArray.length(); i++) {
                 results[i] = (T) jArray.get(i);
             }
@@ -99,10 +99,10 @@ public class PrefHelper {
         return results;
     }
 
-    public <T> List<T> getListValue(String KEY) {
+    public static <T> List<T> getListVal(String KEY) {
         List<T> objects = null;
         try {
-            String obj = prefs.getString(KEY, "");
+            String obj = getInstance().prefs.getString(KEY, "");
             objects = new Gson().fromJson(obj, new TypeToken<List<T>>() {}.getType());
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -110,57 +110,57 @@ public class PrefHelper {
         return objects;
     }
 
-    public boolean getBooleanValue(String KEY, boolean defvalue) {
-        return prefs.getBoolean(KEY, defvalue);
+    public static boolean getBooleanVal(String KEY, boolean defvalue) {
+        return getInstance().prefs.getBoolean(KEY, defvalue);
     }
 
-    public String getStringValue(String KEY, String defvalue) {
-        return prefs.getString(KEY, defvalue);
+    public static String getStringVal(String KEY, String defvalue) {
+        return getInstance().prefs.getString(KEY, defvalue);
     }
 
-    public <T> T getObjectValue(String KEY, Class<T> mModelClass) {
+    public static <T> T getObjectVal(String KEY, Class<T> mModelClass) {
         Object object = null;
         try {
-            object = new Gson().fromJson(prefs.getString(KEY, ""), mModelClass);
+            object = new Gson().fromJson(getInstance().prefs.getString(KEY, ""), mModelClass);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return Primitives.wrap(mModelClass).cast(object);
     }
 
-    public int getIntValue(String KEY, int defValue) {
-        return prefs.getInt(KEY, defValue);
+    public static int getIntVal(String KEY, int defVal) {
+        return getInstance().prefs.getInt(KEY, defVal);
     }
 
-    public long getLongValue(String KEY, long defValue) {
-        return prefs.getLong(KEY, defValue);
+    public static long getLongVal(String KEY, long defVal) {
+        return getInstance().prefs.getLong(KEY, defVal);
     }
 
-    public float getFloatValue(String KEY, float defValue) {
-        return prefs.getFloat(KEY, defValue);
+    public static float getFloatVal(String KEY, float defVal) {
+        return getInstance().prefs.getFloat(KEY, defVal);
     }
 
-    public double getDoubleValue(String KEY, double defValue) {
-        return Double.parseDouble(getStringValue(KEY, String.valueOf(defValue)));
+    public static double getDoubleVal(String KEY, double defVal) {
+        return Double.parseDouble(getStringVal(KEY, String.valueOf(defVal)));
     }
 
-    public void removeKey(String KEY) {
-        prefs.edit().remove(KEY).apply();
+    public static void removeKey(String KEY) {
+        getInstance().prefs.edit().remove(KEY).apply();
     }
     
-    public void removeAllKeys() {
-        prefs.edit().clear().apply();
+    public static void removeAllKeys() {
+        getInstance().prefs.edit().clear().apply();
     }
 
-    public boolean contain(String KEY) {
-        return prefs.contains(KEY);
+    public static boolean contain(String KEY) {
+        return getInstance().prefs.contains(KEY);
     }
 
-    public void registerChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
-        prefs.registerOnSharedPreferenceChangeListener(listener);
+    public static void registerChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
+        getInstance().prefs.registerOnSharedPreferenceChangeListener(listener);
     }
 
-    public void unregisterChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
-        prefs.unregisterOnSharedPreferenceChangeListener(listener);
+    public static void unregisterChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
+        getInstance().prefs.unregisterOnSharedPreferenceChangeListener(listener);
     }
 }
