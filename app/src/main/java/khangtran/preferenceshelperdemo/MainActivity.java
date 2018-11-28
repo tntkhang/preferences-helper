@@ -2,9 +2,12 @@ package khangtran.preferenceshelperdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import khangtran.preferenceshelper.PrefHelper;
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_BOOLEAN = "KEY_BOOLEAN";
     private static final String KEY_ARRAY_LIST = "KEY_ARRAY_LIST";
     private static final String KEY_ARRAY = "KEY_ARRAY";
+    private static final String PREF_COOKIES = "PREF_COOKIES";
 
     private static final String TAG = "PreferencesHelperDemo";
 
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         UserModel userModel = new UserModel("KhangTran", 27);
         PrefHelper.setVal(KEY_OBJECT, userModel);
 
-        List<String> stringList =  Arrays.asList("Tran", "Nguyen", "Thai", "Khang");
+        List<String> stringList = Arrays.asList("Tran", "Nguyen", "Thai", "Khang");
         PrefHelper.setVal(KEY_ARRAY_LIST, stringList);
 
         String[] arr = new String[4];
@@ -51,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
         arr[2] = "Thai 2";
         arr[3] = "Khang 2";
         PrefHelper.setVal(KEY_ARRAY, arr);
+
+        Map<String, String> stringMap = new HashMap<>();
+        stringMap.put("Tr", "Tran");
+        stringMap.put("N", "Nguyen");
+        stringMap.put("Th", "Thai");
+        stringMap.put("K", "Khang");
+        PrefHelper.setVal(PREF_COOKIES, stringMap);
     }
 
     private void getValueFromPreferences() {
@@ -63,5 +74,6 @@ public class MainActivity extends AppCompatActivity {
         UserModel userModel = PrefHelper.getObjectVal(KEY_OBJECT, UserModel.class);
         List<String> stringList = PrefHelper.getListVal(KEY_ARRAY_LIST);
         String[] strings = PrefHelper.getArrayVal(KEY_ARRAY);
+        Map<String, String> stringMap = PrefHelper.getMapVal(PREF_COOKIES);
     }
 }

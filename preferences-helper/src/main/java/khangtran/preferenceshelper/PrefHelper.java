@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by khang on 11/14/2017.
@@ -70,12 +71,16 @@ public class PrefHelper {
         getInstance().prefs.edit().putFloat(KEY, value).apply();
     }
 
-    public static void setVal(String KEY, double defVal) {
-        setVal(KEY, String.valueOf(defVal));
+    public static void setVal(String KEY, double value) {
+        setVal(KEY, String.valueOf(value));
     }
 
-    public static <T> void setVal(String KEY, List<T> strings) {
-        setVal(KEY, new Gson().toJson(strings));
+    public static <T> void setVal(String KEY, List<T> list) {
+        setVal(KEY, new Gson().toJson(list));
+    }
+
+    public static <K,V> void setVal(String KEY, Map<K,V> map) {
+        setVal(KEY, new Gson().toJson(map));
     }
 
     public static <T> void setVal(String KEY, T[] array) {
@@ -104,6 +109,17 @@ public class PrefHelper {
         try {
             String obj = getInstance().prefs.getString(KEY, "");
             objects = new Gson().fromJson(obj, new TypeToken<List<T>>() {}.getType());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return objects;
+    }
+
+    public static <K,V> Map<K,V> getMapVal(String KEY) {
+        Map<K,V> objects = null;
+        try {
+            String obj = getInstance().prefs.getString(KEY, "");
+            objects = new Gson().fromJson(obj, new TypeToken<Map<K,V>>() {}.getType());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
