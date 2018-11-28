@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_BOOLEAN = "KEY_BOOLEAN";
     private static final String KEY_ARRAY_LIST = "KEY_ARRAY_LIST";
     private static final String KEY_ARRAY = "KEY_ARRAY";
-    private static final String PREF_COOKIES = "PREF_COOKIES";
+    private static final String KEY_MAP = "KEY_MAP";
 
     private static final String TAG = "PreferencesHelperDemo";
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         stringMap.put("N", "Nguyen");
         stringMap.put("Th", "Thai");
         stringMap.put("K", "Khang");
-        PrefHelper.setVal(PREF_COOKIES, stringMap);
+        PrefHelper.setVal(KEY_MAP, stringMap);
     }
 
     private void getValueFromPreferences() {
@@ -74,6 +74,6 @@ public class MainActivity extends AppCompatActivity {
         UserModel userModel = PrefHelper.getObjectVal(KEY_OBJECT, UserModel.class);
         List<String> stringList = PrefHelper.getListVal(KEY_ARRAY_LIST);
         String[] strings = PrefHelper.getArrayVal(KEY_ARRAY);
-        Map<String, String> stringMap = PrefHelper.getMapVal(PREF_COOKIES);
+        Map<String, String> stringMap = PrefHelper.getMapVal(KEY_MAP);
     }
 }
