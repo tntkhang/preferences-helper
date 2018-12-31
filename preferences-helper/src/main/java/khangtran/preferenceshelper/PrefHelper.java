@@ -130,8 +130,15 @@ public class PrefHelper {
         return getInstance().prefs.getBoolean(KEY, defvalue);
     }
 
+    public static boolean getBooleanVal(String KEY) {
+        return getInstance().prefs.getBoolean(KEY, false);
+    }
+
     public static String getStringVal(String KEY, String defvalue) {
         return getInstance().prefs.getString(KEY, defvalue);
+    }
+    public static String getStringVal(String KEY) {
+        return getInstance().prefs.getString(KEY, null);
     }
 
     public static <T> T getObjectVal(String KEY, Class<T> mModelClass) {
@@ -147,17 +154,33 @@ public class PrefHelper {
     public static int getIntVal(String KEY, int defVal) {
         return getInstance().prefs.getInt(KEY, defVal);
     }
+    public static int getIntVal(String KEY) {
+        return getInstance().prefs.getInt(KEY, 0);
+    }
 
     public static long getLongVal(String KEY, long defVal) {
         return getInstance().prefs.getLong(KEY, defVal);
+    }
+    public static long getLongVal(String KEY) {
+        return getInstance().prefs.getLong(KEY, 0);
     }
 
     public static float getFloatVal(String KEY, float defVal) {
         return getInstance().prefs.getFloat(KEY, defVal);
     }
+    public static float getFloatVal(String KEY) {
+        return getInstance().prefs.getFloat(KEY, 0);
+    }
 
     public static double getDoubleVal(String KEY, double defVal) {
         return Double.parseDouble(getStringVal(KEY, String.valueOf(defVal)));
+    }
+    public static double getDoubleVal(String KEY) {
+        return Double.parseDouble(getStringVal(KEY, String.valueOf(0)));
+    }
+
+    public static Map<String, ?> getAll() {
+        return getInstance().prefs.getAll();
     }
 
     public static void removeKey(String KEY) {
